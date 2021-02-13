@@ -4,7 +4,7 @@
 
 #define SIGNAL_LED 19
 
-const int ota_port = 1883;
+const int ota_port = 8266;
 const char* ota_username = "signalio";
 const char* ota_password = "root1234";
 
@@ -36,13 +36,13 @@ void ota(){
     WiFi.begin();
 
     Serial.printf("OTA Begin\n");
-    Serial.printf("Use your local IP adress to udate board");
+    Serial.printf("Use your local IP adress to udate board: ");
     Serial.println(WiFi.localIP());
 
-    ArduinoOTA.setHostname(ota_username);
-    ArduinoOTA.setPassword(ota_password);
+    //ArduinoOTA.setHostname(ota_username);
+    //ArduinoOTA.setPassword(ota_password);
     ArduinoOTA.setPort(ota_port);
-    Serial.println(ota_password);
+    //Serial.println(ota_password);
 
     ArduinoOTA.onStart([](){
         String type;
